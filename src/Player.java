@@ -6,7 +6,7 @@ import java.util.List;
  * @author SAE
  * @version 1.0
  */
-public class Player extends Actor {
+public class Player extends MovingActor {
     //Attribute
 
     private int life = 100;
@@ -14,7 +14,9 @@ public class Player extends Actor {
     private int stamina = 25;
     private int coins = 0;
     private int speed = 1;
+    private int experience = 0;
 
+    //Getter & Setter
 
     public int getLife() {
         return life;
@@ -54,5 +56,59 @@ public class Player extends Actor {
 
     public void setSpeed(int speed) {
         this.speed = speed;
+    }
+
+    public int getExperience() {
+        return experience;
+    }
+
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
+
+    //Methoden
+
+    private void performMovement() {
+        if (Greenfoot.isKeyDown("W")) {
+            turn(Direction.NORTH);
+            if (!canMove()) {
+                setLife(this.life - 10);
+            } else {
+                move();
+            }
+        }
+        if (Greenfoot.isKeyDown("A")) {
+            turn(Direction.WEST);
+            if (!canMove()) {
+                setLife(this.life - 10);
+            } else {
+                move();
+            }
+        }
+        if (Greenfoot.isKeyDown("S")) {
+            turn(Direction.SOUTH);
+            if (!canMove()) {
+                setLife(this.life - 10);
+            } else {
+                move();
+            }
+        }
+
+        if (Greenfoot.isKeyDown("D")) {
+            turn(Direction.EAST);
+            if (!canMove()) {
+                setLife(this.life - 10);
+            } else {
+                move();
+            }
+        }
+    }
+
+    public void move() {
+        if (stamina > 0) {
+            move(1);
+            setStamina(this.stamina - 10);
+        }
+
     }
 }

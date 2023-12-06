@@ -1,3 +1,9 @@
+import greenfoot.Actor;
+import greenfoot.Greenfoot;
+import greenfoot.World;
+
+import java.util.List;
+
 public class Character extends MovingActor {
     //Attribute
 
@@ -56,5 +62,19 @@ public class Character extends MovingActor {
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+
+    //Methoden
+
+    public void hit(Class<? extends Actor> cls){
+        World world = getWorld();
+        List<? extends Actor> enemies = getObjectsInRange(1, cls);
+        if(enemies.size() > 0) {
+            Actor enemy = enemies.get(0);
+            enemy.setLife(getLife() - 10);
+            if (enemy.getLife() < 1){
+                world.removeObject(enemy);
+            }
+        }
     }
 }

@@ -3,7 +3,15 @@ import greenfoot.GreenfootImage;
 
 public class ImprovedActor extends Actor {
     private GreenfootImage currentImage; //stored to ensure paint can be removed
+    private int life = 100;
 
+    public int getLife() {
+        return life;
+    }
+
+    public void setLife(int life) {
+        this.life = life;
+    }
     /**
      * Sets the image saving the old image for later use.
      * @param image to set

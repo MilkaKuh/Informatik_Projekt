@@ -13,6 +13,7 @@ public class Character extends MovingActor {
     private int coins = 0;
     private int speed = 1;
     private int experience = 0;
+    private int damage = 10;
 
     //Getter & Setter
 
@@ -64,17 +65,26 @@ public class Character extends MovingActor {
         this.experience = experience;
     }
 
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
     //Methoden
 
-    public void hit(Class<? extends Actor> cls){
+    public void hit(Class<? extends Character> cls){
         World world = getWorld();
-        List<? extends Actor> enemies = getObjectsInRange(1, cls);
+        List<? extends Character> enemies = getObjectsInRange(1, cls);
         if(enemies.size() > 0) {
-            Actor enemy = enemies.get(0);
-            enemy.setLife(getLife() - 10);
+            Character enemy = enemies.get(0);
+            enemy.setLife(getLife() - getDamage()*getLevel());
             if (enemy.getLife() < 1){
                 world.removeObject(enemy);
             }
         }
     }
+
 }

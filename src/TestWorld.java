@@ -16,7 +16,7 @@ public class TestWorld extends World
      */
     public TestWorld()
     {
-        super(8, 8, 60);
+        super(500, 500, 10);
         setBackground("./images/cell.jpg");
         setPaintOrder(Player.class);
         addObject(new Player(), 0,0);

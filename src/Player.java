@@ -11,7 +11,7 @@ public class Player extends Character {
 
     //Getter & Setter
 
-    public Player(){
+    public Player() {
         setLevel(1);
         setLife(100);
         setStamina(100);
@@ -65,5 +65,16 @@ public class Player extends Character {
             setStamina(getStamina() - 10);
         }
 
+    }
+
+    public void interact() {
+        if (Greenfoot.isKeyDown("E")) {
+            List<Character> characters = getObjectsInRange(1, Character.class);
+            if (characters.size() > 0) {
+                Character character = characters.get(0);
+                character.setInteract(true);
+            }
+
+        }
     }
 }

@@ -1,2 +1,2 @@
-public class Blocker {
+public interface Blocker {
 }

@@ -14,6 +14,7 @@ public class Character extends MovingActor {
     private int speed = 1;
     private int experience = 0;
     private int damage = 10;
+    public boolean interact = false;
 
     //Getter & Setter
 
@@ -71,6 +72,14 @@ public class Character extends MovingActor {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public boolean getInteract() {
+        return interact;
+    }
+
+    public void setInteract(boolean interact) {
+        this.interact = interact;
     }
 
     //Methoden

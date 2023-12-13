@@ -1,2 +1,3 @@
-public class TrashCan extends Blocker {
+public class TrashCan extends Interactable implements Blocker {
+
 }

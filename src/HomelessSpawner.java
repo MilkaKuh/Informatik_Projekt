@@ -1,4 +1,4 @@
-public class HomelessSpawner extends ImprovedActor {
+public class HomelessSpawner extends Spawner {
 
     //Attribute
     private int delay = 5;

@@ -1,7 +1,7 @@
-public class VodkaBottle extends Consumables {
+public class VodkaBottle extends Bottle {
 
     public VodkaBottle(){
-        setHydration(3);
+        setWorth(4);
     }
 
 

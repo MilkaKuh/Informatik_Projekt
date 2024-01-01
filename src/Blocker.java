@@ -1,2 +1,3 @@
-public interface Blocker {
+import greenfoot.Actor;
+public class Blocker extends Actor {
 }

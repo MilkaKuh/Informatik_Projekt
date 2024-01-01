@@ -1,6 +1,6 @@
-public class WineBottle extends Consumables{
-
+public class WineBottle extends Bottle{
     public WineBottle(){
-        setHydration(5);
+        setWorth(5);
     }
+
 }

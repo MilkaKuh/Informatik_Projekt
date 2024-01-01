@@ -1,4 +1,4 @@
-public class BeerBottle extends Consumables{
+public class BeerBottle extends Bottle{
 
     public BeerBottle(){
         setWorth(3);

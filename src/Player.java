@@ -8,7 +8,6 @@ import java.util.List;
  */
 public class Player extends Character {
     //Attribute
-
     //Getter & Setter
 
     public Player() {
@@ -58,7 +57,6 @@ public class Player extends Character {
             }
         }
     }
-
     public void move() {
         if (getStamina() > 0) {
             move(1);
@@ -69,12 +67,15 @@ public class Player extends Character {
 
     public void interact() {
         if (Greenfoot.isKeyDown("E")) {
-            List<Character> characters = getObjectsInRange(1, Character.class);
-            if (characters.size() > 0) {
-                Character character = characters.get(0);
-                character.setInteract(true);
-            }
+            List<Interactable> interactableObjects = getObjectsInRange(1, Interactable.class);
+            if (interactableObjects.size() > 0) {
+                Interactable object = interactableObjects.get(0).interact(this, interactableObjects.get(0));
+                setCoins(getCoins() + object.getCoins());
+                if (object instanceof TrashCan){
+                    //hier muss Bottle (Innhalt von TrashCan) in Inventar gegeben werden
+                }
 
+            }
         }
     }
 }

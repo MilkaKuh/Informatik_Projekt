@@ -1,3 +1,3 @@
-public class Tree implements Blocker {
+public class Tree {
 
 }

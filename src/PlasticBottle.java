@@ -1,7 +1,7 @@
-public class PlasticBottle extends Consumables {
+public class PlasticBottle extends Bottle {
 
     public PlasticBottle(){
-        setWorth(5);
+        setWorth(1);
     }
 
 }

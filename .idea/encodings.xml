@@ -3,6 +3,8 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/ImprovedActor.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/ImprovedGreenfootImage.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/InventorySlot.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/InventoryVisualizer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/MovingActor.java" charset="UTF-8" />
     <file url="PROJECT" charset="windows-1252" />
   </component>

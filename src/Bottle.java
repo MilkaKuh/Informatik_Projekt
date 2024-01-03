@@ -1,4 +1,6 @@
-public class Bottle extends ImprovedActor{
+import greenfoot.Actor;
+import greenfoot.World;
+public class Bottle extends Pickable{
 
     private int worth;
 

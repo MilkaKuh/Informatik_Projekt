@@ -25,6 +25,12 @@ public class TrashCan extends Actor implements Interactable {
     public Bottle getBottle(){
         return bottle;
     }
+    public void lootedCoins(){
+        this.coins = 0;
+    }
+    public void lootedBottle(){
+        this.bottle = null;
+    }
     public Interactable interact(Player trigger, Interactable target) {
         return target;
     }

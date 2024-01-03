@@ -43,6 +43,7 @@ public class InventoryVisualizer extends Actor {
         for (int i = 0; i < length; i++) {
             if (inventory[i] != this.slots[i].getItem()) {
                 slots[i].setItem(inventory[i]);
+
             }
         }
     }

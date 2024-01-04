@@ -118,6 +118,11 @@ public class Player extends Character {
             }
         }
     }
+
+    public void interactSubway(){
+
+    }
+
     /*
     public void interactNPC(List<Interactable> objects){
         NPC npc = (NPC) objects.get(0);

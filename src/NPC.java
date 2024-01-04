@@ -11,3 +11,4 @@ public class NPC extends Character{
         return b.getWorth();
     }
 }
+//Shopsystem mit flaschenankauf und item verkauf

@@ -1,4 +1,4 @@
-public class HomelessSpawner extends Spawner {
+/*public class HomelessSpawner extends Spawner {
 
     //Attribute
     private int delay = 5;
@@ -7,3 +7,4 @@ public class HomelessSpawner extends Spawner {
 
 
 }
+*/

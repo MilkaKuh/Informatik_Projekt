@@ -8,7 +8,7 @@ public class MiddleWorld extends Worlds
         setBackground("./images/BackgroundMiddle.png");
         setPaintOrder(Player.class);
         addObject(new Player(), 0,75);
-        getWorldList().add(new MiddleWorld());
+        getWorldList().add(this);
     }
 }
 

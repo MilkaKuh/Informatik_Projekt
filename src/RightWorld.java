@@ -9,7 +9,6 @@ public class RightWorld extends Worlds
         setBackground("./images/BackgroundRight.png");
         setPaintOrder(Player.class);
         addObject(new Player(), 0,75);
-        getWorldList().add(new RightWorld());
-
+        getWorldList().add(this);
     }
 }

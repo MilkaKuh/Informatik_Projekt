@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class Spawner extends ImprovedActor {
+/*public class Spawner extends ImprovedActor {
 
     private int delay;
 
@@ -54,4 +54,4 @@ public class Spawner extends ImprovedActor {
             }
         }
     }
-}
+}*/

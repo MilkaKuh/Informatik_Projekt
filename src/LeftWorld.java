@@ -10,7 +10,7 @@ public class LeftWorld extends Worlds{
         setBackground("./images/BackgroundLeft.png");
         setPaintOrder(Player.class);
         addObject(new Player(), 0,75);
-        getWorldList().add(new LeftWorld());
+        getWorldList().add(this);
     }
 
 }

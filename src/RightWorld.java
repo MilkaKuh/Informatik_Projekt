@@ -1,13 +1,15 @@
 import greenfoot.World;
 
 
-public class RightWorld extends World
+public class RightWorld extends Worlds
 {
     public RightWorld()
     {
-        super(100, 75, 10);
+        super();
         setBackground("./images/BackgroundRight.png");
         setPaintOrder(Player.class);
         addObject(new Player(), 0,75);
+        getWorldList().add(new RightWorld());
+
     }
 }

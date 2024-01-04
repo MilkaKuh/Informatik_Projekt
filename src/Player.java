@@ -24,7 +24,7 @@ public class Player extends Character {
     }
 
     //Methoden
-    public void addedToWorld(World world) {
+    public void addedToWorld(Worlds world) {
         visualizer = new InventoryVisualizer(inventory);
         getWorld().addObject(visualizer, 0, world.getHeight() - 1);
     }

@@ -11,8 +11,17 @@ public class Player extends Character {
     private InventoryVisualizer visualizer;
     Pickable[] inventory = new Pickable[8];
 
-    //Getter & Setter
+    private boolean isOverground;
 
+
+    //Getter & Setter
+    public boolean getIsOverground(){
+        return isOverground;
+    }
+
+    public void setIsOverground(boolean x){
+        this.isOverground = x;
+    }
     public Player() {
         setLevel(1);
         setLife(100);
@@ -21,8 +30,12 @@ public class Player extends Character {
         setExperience(0);
         setSpeed(1);
         setExperience(0);
+        setIsOverground(true);
     }
 
+    public void act() {
+        performMovement();
+    }
     //Methoden
     public void addedToWorld(Worlds world) {
         visualizer = new InventoryVisualizer(inventory);
@@ -30,48 +43,26 @@ public class Player extends Character {
     }
 
     private void performMovement() {
-        if (Greenfoot.isKeyDown("W")) {
-            turn(Direction.NORTH);
-            if (!canMove()) {
-                setLife(getLife() - 10);
-            } else {
-                move();
-            }
-        }
+
         if (Greenfoot.isKeyDown("A")) {
             turn(Direction.WEST);
-            if (!canMove()) {
-                setLife(getLife() - 10);
-            } else {
-                move();
+            if (getNextX(2) < 95 ){
+                move(5);
             }
+
         }
-        if (Greenfoot.isKeyDown("S")) {
-            turn(Direction.SOUTH);
-            if (!canMove()) {
-                setLife(getLife() - 10);
-            } else {
-                move();
-            }
-        }
+
 
         if (Greenfoot.isKeyDown("D")) {
             turn(Direction.EAST);
-            if (!canMove()) {
-                setLife(getLife() - 10);
-            } else {
-                move();
+            if (getNextX(6) < 100 ){
+                move(5);
             }
+
         }
     }
 
-    public void move() {
-        if (getStamina() > 0) {
-            move(1);
-            setStamina(getStamina() - 10);
-        }
 
-    }
 
     public void interact() {
         if (Greenfoot.isKeyDown("E")) {

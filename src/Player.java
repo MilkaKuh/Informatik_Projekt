@@ -30,14 +30,6 @@ public class Player extends Character {
     }
 
     private void performMovement() {
-        if (Greenfoot.isKeyDown("W")) {
-            turn(Direction.NORTH);
-            if (!canMove()) {
-                setLife(getLife() - 10);
-            } else {
-                move();
-            }
-        }
         if (Greenfoot.isKeyDown("A")) {
             turn(Direction.WEST);
             if (!canMove()) {
@@ -46,15 +38,6 @@ public class Player extends Character {
                 move();
             }
         }
-        if (Greenfoot.isKeyDown("S")) {
-            turn(Direction.SOUTH);
-            if (!canMove()) {
-                setLife(getLife() - 10);
-            } else {
-                move();
-            }
-        }
-
         if (Greenfoot.isKeyDown("D")) {
             turn(Direction.EAST);
             if (!canMove()) {

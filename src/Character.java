@@ -85,21 +85,14 @@ public class Character extends MovingActor {
     //Methoden
 
     public void monsterPerformMovement() {
-        int rngDirection = Greenfoot.getRandomNumber(4);
+        int rngDirection = Greenfoot.getRandomNumber(2);
         int steps = Greenfoot.getRandomNumber(2);
+
         if (rngDirection == 0) {
-            turn(Direction.NORTH);
-            move(steps);
-        }
-        if (rngDirection == 1) {
             turn(Direction.WEST);
             move(steps);
         }
-        if (rngDirection == 2) {
-            turn(Direction.SOUTH);
-            move(steps);
-        }
-        if (rngDirection == 3) {
+        if (rngDirection == 1) {
             turn(Direction.EAST);
             move(steps);
         }

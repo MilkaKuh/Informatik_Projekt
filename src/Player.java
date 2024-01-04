@@ -6,6 +6,7 @@ import java.util.List;
  * @author SAE
  * @version 1.0
  */
+
 public class Player extends Character {
     //Attribute
     private InventoryVisualizer visualizer;
@@ -55,9 +56,7 @@ public class Player extends Character {
 
         if (Greenfoot.isKeyDown("D")) {
             turn(Direction.EAST);
-            if (getNextX(6) < 100 ){
-                move(5);
-            }
+
 
         }
     }

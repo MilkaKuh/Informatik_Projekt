@@ -1,6 +1,7 @@
 import greenfoot.Actor;
 import greenfoot.Greenfoot;
 import greenfoot.*;
+
 public class TrashCan extends Actor implements Interactable {
     private int coins;
     private Bottle bottle;

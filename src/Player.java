@@ -9,10 +9,14 @@ import java.util.List;
 
 public class Player extends Character {
     //Attribute
+
     private InventoryVisualizer visualizer;
+
     Pickable[] inventory = new Pickable[8];
 
     private boolean isOverground;
+
+    private String direction;
 
 
     //Getter & Setter
@@ -36,11 +40,19 @@ public class Player extends Character {
 
     public void act() {
         performMovement();
+        interact();
     }
     //Methoden
-    public void addedToWorld(Worlds world) {
+    public void addedToWorld(World world) {
         visualizer = new InventoryVisualizer(inventory);
-        getWorld().addObject(visualizer, 0, world.getHeight() - 1);
+        world.addObject(visualizer, 0, world.getHeight() - 1);
+    }
+
+    public void setDirection(String direction){
+        this.direction = direction;
+    }
+    public String getDirection(){
+        return direction;
     }
 
     private void performMovement() {
@@ -67,7 +79,7 @@ public class Player extends Character {
 
     public void interact() {
         if (Greenfoot.isKeyDown("E")) {
-            List<Interactable> interactable = getObjectsInRange(1, Interactable.class);
+            List<Interactable> interactable = getObjectsInRange(20, Interactable.class);
             if (interactable.size() > 0) {
                 if (interactable.get(0) instanceof Bottle) {
                     interactBottle(interactable);

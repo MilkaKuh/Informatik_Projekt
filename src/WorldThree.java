@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class WorldThree extends Worlds
 {
@@ -8,9 +9,9 @@ public class WorldThree extends Worlds
         setPaintOrder(Player.class);
         addObject(new Player(), 20,60);
     }
-    public WorldThree(Player p)
+    public WorldThree(Player p, ArrayList<Worlds> w)
     {
-        super();
+        new Worlds(w);
         setBackground("./images/WorldThree.png");
         setPaintOrder(Player.class);
         addObject(p, 10,60);

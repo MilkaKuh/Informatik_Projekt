@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class WorldOne extends Overground{
 
@@ -6,11 +7,13 @@ public class WorldOne extends Overground{
         new Worlds();
         setBackground("./images/WorldOne.png");
         setPaintOrder(Player.class);
-        addObject(new Player(), 20,60);
+        Player p = new Player();
+        addObject(p, 20,60);
+        p.addedToWorld(this);
     }
-    public WorldOne(Player p)
+    public WorldOne(Player p, ArrayList<Worlds> w)
     {
-        new Worlds();
+        new Worlds(w);
         setBackground("./images/WorldOne.png");
         setPaintOrder(Player.class);
         addObject(p, 10,60);

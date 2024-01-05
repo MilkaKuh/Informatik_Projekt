@@ -20,10 +20,10 @@ public class Worlds extends World {
             addObject(new TrashCan(), Greenfoot.getRandomNumber(250), 65);
         } else {
             TrashCan tC = new TrashCan();
-            addObject(tC, Greenfoot.getRandomNumber(250), 65);
+            addObject(tC, Greenfoot.getRandomNumber(260), 65);
             boolean canSpawn = false;
             while (canSpawn = false) {
-                int secondTrashCanX = Greenfoot.getRandomNumber(250);
+                int secondTrashCanX = Greenfoot.getRandomNumber(260);
                 if (tC.getX() + 10 > secondTrashCanX && tC.getX() - 10 < secondTrashCanX) {
                     addObject(new TrashCan(), secondTrashCanX, 65);
                     canSpawn = true;
@@ -36,6 +36,25 @@ public class Worlds extends World {
             addObject(new Spawner(),200,65);
         }
 
+    }
+
+    public Worlds(ArrayList<Worlds> w) {
+        super(260,90,10);
+        int x = Greenfoot.getRandomNumber(2);
+        if (x == 1) {
+            addObject(new TrashCan(), Greenfoot.getRandomNumber(260), 65);
+
+        } else {
+            TrashCan tC = new TrashCan();
+            addObject(tC, Greenfoot.getRandomNumber(260), 65);
+            boolean canSpawn = false;
+            while (canSpawn = false) {
+                int secondTrashCanX = Greenfoot.getRandomNumber(260);
+
+            }
+        }
+        setCurrentWorld(this);
+        setWorld(w);
     }
 
 
@@ -53,25 +72,35 @@ public class Worlds extends World {
         return world;
     }
 
+    public void setWorld(ArrayList<Worlds> world) {
+        this.world = world;
+    }
+    public ArrayList<Worlds> getWorld() {
+        return world;
+    }
+
     public void checkWorldChange(){
         if (getPlayer().getNextX(6) > 260 ){
             if (getPlayer().getIsOverground() == true){
                 int randomizer = Greenfoot.getRandomNumber(3);
                 if(randomizer==0){
-                    Worlds newWorlds = new WorldOne(getPlayer());
+                    Worlds newWorlds = new WorldOne(getPlayer(), world);
                     currentPosAtWorldList = currentPosAtWorldList +1;
                     setCurrentWorld(newWorlds);
+                    world.add(currentWorld);
                     Greenfoot.setWorld(currentWorld);
 
                 } else if (randomizer==1) {
-                    Worlds newWorlds = new WorldTwo(getPlayer());
+                    Worlds newWorlds = new WorldTwo(getPlayer(), world);
                     currentPosAtWorldList = currentPosAtWorldList +1;
                     setCurrentWorld(newWorlds);
+                    world.add(currentWorld);
                     Greenfoot.setWorld(currentWorld);
                 }else{
-                    Worlds newWorlds = new WorldThree(getPlayer());
+                    Worlds newWorlds = new WorldThree(getPlayer(), world);
                     currentPosAtWorldList = currentPosAtWorldList +1;
                     setCurrentWorld(newWorlds);
+                    world.add(currentWorld);
                     Greenfoot.setWorld(currentWorld);
                 }
             }
@@ -97,6 +126,7 @@ public class Worlds extends World {
             Greenfoot.setWorld(currentWorld);
 
         }
+        System.out.print(getWorldList().size());
     }
     public void setBackgroundToCurrentWorld(){
         setBackground(currentWorld.getBackground());

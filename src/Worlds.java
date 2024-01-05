@@ -9,6 +9,7 @@ public class Worlds extends World {
     private ArrayList<Worlds> world = new ArrayList<Worlds>();
     private int currentPosAtWorldList = 0;
 
+    private int activator;
     private Worlds currentWorld;
     public Worlds() {
         super(260, 90, 10);
@@ -26,11 +27,18 @@ public class Worlds extends World {
                 if (tC.getX() + 10 > secondTrashCanX && tC.getX() - 10 < secondTrashCanX) {
                     addObject(new TrashCan(), secondTrashCanX, 72);
                     canSpawn = true;
+
                 }
             }
         }
+        setActivator(Greenfoot.getRandomNumber(3));
+        if(activator == 0){
+            addObject(new Spawner(5,10),200,60);
+        }
 
     }
+
+
     public void setCurrentWorld(Worlds w){
 
         this.currentWorld = w;
@@ -100,6 +108,10 @@ public class Worlds extends World {
     public Player getPlayer(){
        List<Player> player = getCurrentWorld().getObjects(Player.class);
        return player.get(0);
+    }
+
+    public void setActivator(int activator) {
+        this.activator = activator;
     }
 }
 

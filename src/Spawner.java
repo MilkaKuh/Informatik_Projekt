@@ -1,13 +1,15 @@
 import java.util.LinkedList;
 import java.util.List;
 
-/*public class Spawner extends ImprovedActor {
+public class Spawner extends ImprovedActor {
 
     private int delay;
 
     private int amount;
 
     private int countdown;
+
+    private int activator;
 
     public int getDelay() {
         return delay;
@@ -33,8 +35,22 @@ import java.util.List;
         this.countdown = countdown;
     }
 
+    public int getActivator() {
+        return activator;
+    }
+
+    public void setActivator(int activator) {
+        this.activator = activator;
+    }
+
     private List<Mob> mobs = new LinkedList<Mob>();
 
+    public Spawner(int maxAmount, int spawnDelay) {
+        this.amount = maxAmount;
+        this.delay = spawnDelay;
+        this.countdown = spawnDelay;
+        this.activator = 0;
+    }
 
     public void act(){
         if(countdown<=0 && mobs.size() <= amount){
@@ -54,4 +70,4 @@ import java.util.List;
             }
         }
     }
-}*/
+}

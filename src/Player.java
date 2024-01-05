@@ -110,12 +110,14 @@ public class Player extends Character {
         TrashCan tc = (TrashCan) objects.get(0);
         setCoins(getCoins() + tc.getCoins());
         tc.lootedCoins();
-        for (int i = 0; i < inventory.length; i++) {
-            if (inventory[i] == null) {
-                inventory[i] = tc.getBottle();
-                tc.lootedBottle();
-            } else {
-                System.out.println("Dein Inventar ist bereits voll");
+        if (tc.getLooted() == false) {
+            for (int i = 0; i < inventory.length; i++) {
+                if (inventory[i] == null) {
+                    inventory[i] = tc.getBottle();
+                    tc.lootedBottle();
+                } else {
+                    System.out.println("Dein Inventar ist bereits voll");
+                }
             }
         }
     }

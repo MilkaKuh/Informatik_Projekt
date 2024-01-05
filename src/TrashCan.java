@@ -5,6 +5,8 @@ import greenfoot.*;
 public class TrashCan extends Actor implements Interactable {
     private int coins;
     private Bottle bottle;
+
+    private boolean looted;
     TrashCan() {
         coins = Greenfoot.getRandomNumber(5);
         int containedBottle = Greenfoot.getRandomNumber(3);
@@ -34,6 +36,19 @@ public class TrashCan extends Actor implements Interactable {
     public void lootedBottle(){
         this.bottle = null;
     }
+
+    public void setBottle(Bottle bottle) {
+        this.bottle = bottle;
+    }
+
+    public void setLooted(boolean looted) {
+        this.looted = looted;
+    }
+
+    public boolean getLooted(){
+        return looted;
+    }
+
     public Interactable interact(Player trigger, Interactable target) {
         return target;
     }

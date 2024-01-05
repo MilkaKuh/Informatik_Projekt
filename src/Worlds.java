@@ -11,18 +11,18 @@ public class Worlds extends World {
 
     private Worlds currentWorld;
     public Worlds() {
-        super(100, 75, 10);
+        super(260, 90, 10);
         currentWorld = this;
         world.add(currentWorld);
         int x = Greenfoot.getRandomNumber(2);
         if (x == 1) {
-            addObject(new TrashCan(), Greenfoot.getRandomNumber(90), 72);
+            addObject(new TrashCan(), Greenfoot.getRandomNumber(250), 72);
         } else {
             TrashCan tC = new TrashCan();
-            addObject(tC, Greenfoot.getRandomNumber(90), 72);
+            addObject(tC, Greenfoot.getRandomNumber(250), 72);
             boolean canSpawn = false;
             while (canSpawn = false) {
-                int secondTrashCanX = Greenfoot.getRandomNumber(90);
+                int secondTrashCanX = Greenfoot.getRandomNumber(250);
                 if (tC.getX() + 10 > secondTrashCanX && tC.getX() - 10 < secondTrashCanX) {
                     addObject(new TrashCan(), secondTrashCanX, 72);
                     canSpawn = true;
@@ -46,7 +46,7 @@ public class Worlds extends World {
     }
 
     public void checkWorldChange(){
-        if (getPlayer().getNextX(6) > 100 ){
+        if (getPlayer().getNextX(6) > 260 ){
             if (getPlayer().getIsOverground() == true){
                 int randomizer = Greenfoot.getRandomNumber(3);
                 if(randomizer==0){

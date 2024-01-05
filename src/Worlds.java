@@ -17,15 +17,15 @@ public class Worlds extends World {
         world.add(currentWorld);
         int x = Greenfoot.getRandomNumber(2);
         if (x == 1) {
-            addObject(new TrashCan(), Greenfoot.getRandomNumber(250), 72);
+            addObject(new TrashCan(), Greenfoot.getRandomNumber(250), 65);
         } else {
             TrashCan tC = new TrashCan();
-            addObject(tC, Greenfoot.getRandomNumber(250), 72);
+            addObject(tC, Greenfoot.getRandomNumber(250), 65);
             boolean canSpawn = false;
             while (canSpawn = false) {
                 int secondTrashCanX = Greenfoot.getRandomNumber(250);
                 if (tC.getX() + 10 > secondTrashCanX && tC.getX() - 10 < secondTrashCanX) {
-                    addObject(new TrashCan(), secondTrashCanX, 72);
+                    addObject(new TrashCan(), secondTrashCanX, 65);
                     canSpawn = true;
 
                 }
@@ -33,7 +33,7 @@ public class Worlds extends World {
         }
         setActivator(Greenfoot.getRandomNumber(3));
         if(activator == 0){
-            addObject(new Spawner(),200,60);
+            addObject(new Spawner(),200,65);
         }
 
     }

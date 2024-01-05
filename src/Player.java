@@ -75,12 +75,9 @@ public class Player extends Character {
                 if (interactable.get(0) instanceof TrashCan) {
                     interactTrashCan(interactable);
                 }
-                /*
                 if (interactable.get(0) instanceof NPC) {
                     interactNPC(interactable);
                 }
-
-                */
             }
         }
     }
@@ -115,10 +112,15 @@ public class Player extends Character {
 
     }
 
-    /*
+
     public void interactNPC(List<Interactable> objects){
         NPC npc = (NPC) objects.get(0);
+        for (int i = 0; i < inventory.length; i++) {
+            setCoins(getCoins()+npc.sellBottle((Bottle) inventory[i]));
+            inventory[i] = null;
+        }
 
     }
-    */
+
+
 }

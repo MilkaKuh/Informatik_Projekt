@@ -33,7 +33,7 @@ public class Worlds extends World {
         }
         setActivator(Greenfoot.getRandomNumber(3));
         if(activator == 0){
-            addObject(new Spawner(5,10),200,60);
+            addObject(new Spawner(),200,60);
         }
 
     }

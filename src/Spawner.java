@@ -1,3 +1,5 @@
+import greenfoot.Greenfoot;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,6 +12,10 @@ public class Spawner extends ImprovedActor {
     private int countdown;
 
     private int activator;
+
+    private int currentMonsterCount;
+
+    private int maxMonsterCount;
 
     public int getDelay() {
         return delay;
@@ -39,35 +45,45 @@ public class Spawner extends ImprovedActor {
         return activator;
     }
 
+    public void setmaxMonsterCount(int maxMonsterCount) {
+        this.maxMonsterCount = maxMonsterCount;
+    }
+
+    public int getmaxMonsterCount() {
+        return maxMonsterCount;
+    }
+
+
     public void setActivator(int activator) {
         this.activator = activator;
     }
 
     private List<Mob> mobs = new LinkedList<Mob>();
 
-    public Spawner(int maxAmount, int spawnDelay) {
-        this.amount = maxAmount;
-        this.delay = spawnDelay;
-        this.countdown = spawnDelay;
+    public Spawner() {
+        this.amount = Greenfoot.getRandomNumber(15);
+        this.delay = 5;
+        this.countdown = delay;
         this.activator = 0;
+        maxMonsterCount = 3;
     }
 
-    public void act(){
-        if(countdown<=0 && mobs.size() <= amount){
+
+    public void act() {
+        countdown = countdown - 1;
+        if (countdown <= 0 && getNumMobs() < maxMonsterCount) {
             Mob mob = new Mob();
-            getWorld().addObject(mob, getX(), getY());
-            countdown=delay;
-            mobs.add(mob);
+            getWorld().addObject(new Mob(), getX(), getY());
+            countdown = delay;
+            setAmount(amount - 1);
+            getNumMobs();
         }
-        countdown--;
 
-        checkMobs();
     }
-    private void checkMobs(){
-        for(Mob mob:mobs){
-            if(!getWorld().getObjects(Mob.class).contains(mob)){
-                mobs.remove(mobs);
-            }
-        }
+    public int getNumMobs(){
+
+        List <Mob> mobs = getWorld().getObjects(Mob.class);
+        int numMobs = mobs.size();
+        return numMobs;
     }
 }

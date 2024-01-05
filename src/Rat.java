@@ -1,4 +1,4 @@
-public class Cat extends Mob{
+public class Rat extends Mob{
     public void act(){
         monsterPerformMovement();
     }

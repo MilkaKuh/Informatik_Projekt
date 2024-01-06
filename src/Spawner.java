@@ -17,6 +17,8 @@ public class Spawner extends ImprovedActor {
 
     private int maxMonsterCount;
 
+    private int spawnerType;
+
     public int getDelay() {
         return delay;
     }
@@ -66,18 +68,44 @@ public class Spawner extends ImprovedActor {
         this.countdown = delay;
         this.activator = 0;
         maxMonsterCount = 3;
+        int spawnerType = Greenfoot.getRandomNumber(3);
     }
 
 
     public void act() {
         countdown = countdown - 1;
-        if (countdown <= 0 && getNumMobs() < maxMonsterCount) {
-            Mob mob = new Mob();
-            getWorld().addObject(new Mob(), getX(), getY());
-            countdown = delay;
-            setAmount(amount - 1);
-            getNumMobs();
+
+        if(spawnerType == 0){
+            if (countdown <= 0 && getNumMobs() < maxMonsterCount) {
+                Cat cat = new Cat();
+                getWorld().addObject(new Cat(), getX(), getY());
+                countdown = delay;
+                setAmount(amount - 1);
+                getNumMobs();
+            }
         }
+
+        if(spawnerType == 1){
+            if (countdown <= 0 && getNumMobs() < maxMonsterCount) {
+                Dog dog = new Dog();
+                getWorld().addObject(new Dog(), getX(), getY());
+                countdown = delay;
+                setAmount(amount - 1);
+                getNumMobs();
+            }
+        }   else {
+            if(spawnerType == 0){
+                if (countdown <= 0 && getNumMobs() < maxMonsterCount) {
+                    Rat rat = new Rat();
+                    getWorld().addObject(new Rat(), getX(), getY());
+                    countdown = delay;
+                    setAmount(amount - 1);
+                    getNumMobs();
+                }
+            }
+        }
+
+
 
     }
     public int getNumMobs(){

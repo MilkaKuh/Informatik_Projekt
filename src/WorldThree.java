@@ -1,19 +1,16 @@
-import java.util.ArrayList;
+import java.util.*;
 
-public class WorldThree extends Worlds
-{
-    public WorldThree()
-    {
-        super();
-        setBackground("./images/WorldThree.png");
-        setPaintOrder(Player.class);
-        addObject(new Player(), 20,60);
+public class WorldThree extends Overground{
+
+    public WorldThree(){
+        this(new Player());
     }
-    public WorldThree(Player p, ArrayList<Worlds> w)
+
+    public WorldThree(Player player)
     {
-        new Worlds(w);
+        super(player);
         setBackground("./images/WorldThree.png");
         setPaintOrder(Player.class);
-        addObject(p, 10,60);
+        addObject(player, 10,60);
     }
 }

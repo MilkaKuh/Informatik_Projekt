@@ -1,17 +1,16 @@
-public class SubwayWorldOne extends Underground{
+import java.util.*;
 
-    public SubwayWorldOne()
-    {
-        super();
-        setBackground("./images/BackgroundLeft.png");
-        setPaintOrder(Player.class);
-        addObject(new Player(), 0,75);
+public class SubwayWorldOne extends Overground{
+
+    public SubwayWorldOne(){
+        this(new Player());
     }
-    public SubwayWorldOne(Player p)
+
+    public SubwayWorldOne(Player player)
     {
-        super();
-        setBackground("./images/BackgroundLeft.png");
+        super(player);
+        setBackground("./images/SubwayWorldOne.png");
         setPaintOrder(Player.class);
-        addObject(p, 0,75);
+        addObject(player, 10,60);
     }
 }

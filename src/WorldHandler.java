@@ -1,5 +1,4 @@
-import greenfoot.Greenfoot;
-import greenfoot.World;
+import greenfoot.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -7,40 +6,33 @@ import java.util.List;
 public class WorldHandler extends World {
     private static List<WorldHandler> worlds = new LinkedList<>();
     private static int currentPosAtWorldList = 0;
-    private int activator;
     private Player player;
 
     public WorldHandler(Player player){
         super(260, 90, 10);
         this.player = player;
         worlds.add(this);
-        int x = Greenfoot.getRandomNumber(2);
-        if (x == 1) {
-            TrashCan tC = new TrashCan();
-            addObject(tC, Greenfoot.getRandomNumber(250), 65);
-        } else {
-            TrashCan tC = new TrashCan();
-            addObject(tC, Greenfoot.getRandomNumber(260), 65);
-            boolean canSpawn = false;
-            while (canSpawn = false) {
-                int secondTrashCanX = Greenfoot.getRandomNumber(260);
-                if (tC.getX() + 10 > secondTrashCanX && tC.getX() - 10 < secondTrashCanX) {
-                    addObject(new TrashCan(), secondTrashCanX, 65);
-                    canSpawn = true;
 
-                }
-            }
+
+        int activator = Greenfoot.getRandomNumber(4);
+        if(activator == 1) {
+            addObject(new Spawner(),100 + Greenfoot.getRandomNumber(70), 65);
         }
-        setActivator(Greenfoot.getRandomNumber(3));
-        if(activator == 0){
-            addObject(new Spawner(),200,65);
+        int randomizer = Greenfoot.getRandomNumber(2);
+        if(randomizer == 1){
+            addObject(new TrashCan(), Greenfoot.getRandomNumber(90),65);
+        } else{
+            addObject(new TrashCan(), Greenfoot.getRandomNumber(90),65);
+            addObject(new TrashCan(), 180 + Greenfoot.getRandomNumber(70),65);
         }
+        worlds.get(0).addObject(new NPC(), 30, 69);
     }
 
 
     public List<WorldHandler> getWorldList(){
         return worlds;
     }
+
 
     public void checkWorldChange(){
 
@@ -89,9 +81,6 @@ public class WorldHandler extends World {
                 return;
              }
         }
-
-        System.out.println("ListLength :" + worlds.size());
-        System.out.println("PlayerPos :" + currentPosAtWorldList);
     }
 
     public void act(){
@@ -102,7 +91,28 @@ public class WorldHandler extends World {
         return player;
     }
 
-    public void setActivator(int activator) {
-        this.activator = activator;
+    public int HigherX (Actor a1, Actor a2){
+        int a = a1.getX();
+        int b = a2.getX();
+        if(a < b){
+            return b;
+        } else if(b < a){
+            return a;
+        }
+        else{
+            return 0;
+        }
+    }
+    public int LowerX (Actor a1, Actor a2){
+        int a = a1.getX();
+        int b = a2.getX();
+        if(a < b){
+            return a;
+        } else if(b < a){
+            return b;
+        }
+        else{
+            return 0;
+        }
     }
 }

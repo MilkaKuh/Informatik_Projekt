@@ -1,9 +1,9 @@
-import greenfoot.Greenfoot;
+import greenfoot.*;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class Spawner extends ImprovedActor {
+public class Spawner extends Actor {
 
     private int delay;
 

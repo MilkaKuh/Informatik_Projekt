@@ -9,7 +9,7 @@ public class TrashCan extends Actor implements Interactable {
     private boolean looted;
     TrashCan() {
         coins = Greenfoot.getRandomNumber(5);
-        int containedBottle = Greenfoot.getRandomNumber(3);
+        int containedBottle = Greenfoot.getRandomNumber(4);
         if (containedBottle == 0) {
             bottle = new WineBottle();
         }

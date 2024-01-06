@@ -1,5 +1,4 @@
-import greenfoot.Actor;
-import greenfoot.World;
+import greenfoot.*;
 
 import java.util.List;
 
@@ -12,6 +11,7 @@ public class InventoryVisualizer extends Actor {
         getImage().setTransparency(0);
         slots = new InventorySlot[inventory.length];
         this.inventory = inventory;
+
     }
 
     public InventoryVisualizer(List<Actor> inventory) {
@@ -24,13 +24,13 @@ public class InventoryVisualizer extends Actor {
 
     protected void addedToWorld(World world){
         for(int i=0; i < slots.length; i++){
-            slots[i] = createItemSlot(i);
+            slots[i] = createItemSlot(i*6);
         }
     }
 
     private InventorySlot createItemSlot(int i) {
         InventorySlot slot = new InventorySlot();
-        getWorld().addObject(slot, i, getY());
+        getWorld().addObject(slot, i+94, getY());
         return slot;
     }
 
@@ -42,6 +42,7 @@ public class InventoryVisualizer extends Actor {
         int length = Math.min(inventory.length, this.slots.length);
         for (int i = 0; i < length; i++) {
             if (inventory[i] != this.slots[i].getItem()) {
+
                 slots[i].setItem(inventory[i]);
 
             }

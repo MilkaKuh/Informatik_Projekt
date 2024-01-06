@@ -12,7 +12,7 @@ public class Player extends Character {
 
     private InventoryVisualizer visualizer;
 
-    Pickable[] inventory = new Pickable[8];
+    Pickable[] inventory = new Pickable[12];
 
     private boolean isOverground;
 
@@ -43,7 +43,7 @@ public class Player extends Character {
         performMovement();
         interact();
         if(Greenfoot.isKeyDown("F")){
-            hit(Character.class);
+            hit(Character.class, 30);
 
 
         }
@@ -52,7 +52,7 @@ public class Player extends Character {
     //Methoden
     public void addedToWorld(World world) {
         visualizer = new InventoryVisualizer(inventory);
-        world.addObject(visualizer, 0, world.getHeight() - 1);
+        world.addObject(visualizer, 0, world.getHeight() - 3);
     }
 
     public void setDirection(String direction){
@@ -121,6 +121,7 @@ public class Player extends Character {
                     inventory[i] = tc.getBottle();
                     tc.lootedBottle();
                     tc.setLooted(true);
+                    System.out.println("tc.getBootle");
                 } else {
                     System.out.println("Dein Inventar ist bereits voll");
                 }

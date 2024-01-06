@@ -14,7 +14,7 @@ public class WorldHandler extends World {
         worlds.add(this);
 
 
-        int activator = Greenfoot.getRandomNumber(4);
+        int activator = Greenfoot.getRandomNumber(5);
         if(activator == 1) {
             addObject(new Spawner(),100 + Greenfoot.getRandomNumber(70), 65);
         }
@@ -26,6 +26,7 @@ public class WorldHandler extends World {
             addObject(new TrashCan(), 180 + Greenfoot.getRandomNumber(70),65);
         }
         worlds.get(0).addObject(new NPC(), 30, 69);
+        setPaintOrder(Player.class,Pickable.class);
     }
 
 

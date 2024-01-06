@@ -22,7 +22,7 @@ public class TrashCan extends Actor implements Interactable {
         if (containedBottle == 3) {
             bottle = new PlasticBottle();
         }
-        this.setImage("TrashCan.png");
+
     }
     public int getCoins(){
         return coins;

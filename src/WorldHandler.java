@@ -80,13 +80,16 @@ public class WorldHandler extends World {
                 worlds.remove(OutOfBouncePrevention);
                 return;
             }
-        }else if (getPlayer().getNextX(6) < 5 && getPlayer().getRotation() == 180){
-            currentPosAtWorldList--;
-            WorldHandler worldToActivate = worlds.get(currentPosAtWorldList);
-            worldToActivate.addObject(getPlayer(), 250, 60);
-            Greenfoot.setWorld(worldToActivate);
-            return;
+        } else if(currentPosAtWorldList > 0){
+                if (getPlayer().getNextX(6) < 5 && getPlayer().getRotation() == 180) {
+                    currentPosAtWorldList--;
+                    WorldHandler worldToActivate = worlds.get(currentPosAtWorldList);
+                    worldToActivate.addObject(getPlayer(), 250, 60);
+                    Greenfoot.setWorld(worldToActivate);
+                return;
+             }
         }
+
         System.out.println("ListLength :" + worlds.size());
         System.out.println("PlayerPos :" + currentPosAtWorldList);
     }

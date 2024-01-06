@@ -85,9 +85,9 @@ public class Character extends MovingActor {
     //Methoden
 
 
-    public void hit(Class<? extends Character> cls){
+    public void hit(Class<? extends Character> cls, int radius){
         World world = getWorld();
-        List<? extends Character> enemies = getObjectsInRange(30, cls);
+        List<? extends Character> enemies = getObjectsInRange(radius, cls);
         if(enemies.size() > 0) {
             Character enemy = enemies.get(0);
             enemy.setLife(enemy.getLife() - (this.getDamage()*this.level));

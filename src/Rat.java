@@ -6,7 +6,7 @@ public class Rat extends Mob{
 
     }
     public void act(){
-
+        monsterAttack(10);
         monsterPerformMovement();
     }
 

@@ -19,14 +19,17 @@ public class Mob extends Character{
             turn(Direction.EAST);
             move(steps);
         }
-        if(hitCooldown == 0){
-            hit(Player.class);
-            hitCooldown = 10;
-        }
-
-        hitCooldown = hitCooldown - 1;
 
     }
+
+    public void monsterAttack(int radius) {
+        if (hitCooldown == 0) {
+            hit(Player.class, radius);
+            hitCooldown = 10;
+        }
+        hitCooldown = hitCooldown - 1;
+    }
+
 
     public void act(){
         monsterPerformMovement();

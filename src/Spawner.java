@@ -13,7 +13,6 @@ public class Spawner extends ImprovedActor {
 
     private int activator;
 
-    private int currentMonsterCount;
 
     private int maxMonsterCount;
 
@@ -74,7 +73,6 @@ public class Spawner extends ImprovedActor {
 
     public void act() {
         countdown = countdown - 1;
-
         if(spawnerType == 0){
             if (countdown <= 0 && getNumMobs() < maxMonsterCount) {
                 Cat cat = new Cat();

@@ -31,7 +31,7 @@ public class Spawner extends ImprovedActor {
     }
 
     public void setAmount(int amount) {
-        this.amount = countdown;
+        this.amount = amount;
     }
 
     public int getCountdown() {
@@ -63,42 +63,55 @@ public class Spawner extends ImprovedActor {
 
     public Spawner() {
         this.amount = Greenfoot.getRandomNumber(15);
-        this.delay = 5;
-        this.countdown = delay;
+        while(amount < 7){
+            this.amount = Greenfoot.getRandomNumber(8);
+        }
+        this.delay = 100;
+        this.countdown = 10;
         this.activator = 0;
-        maxMonsterCount = 3;
+        maxMonsterCount = Greenfoot.getRandomNumber(6);
+        while(maxMonsterCount < 3){
+            maxMonsterCount = Greenfoot.getRandomNumber(5);
+        }
+        System.out.println(amount);
     }
 
-
     public void act() {
-        countdown = countdown - 1;
-        int spawnerType = Greenfoot.getRandomNumber(2);
+        if(getNumMobs() == maxMonsterCount){
+            countdown = countdown -1;
+        }else{
+            countdown = countdown -3;
+        }
+        int spawnerType = Greenfoot.getRandomNumber(3);
         if(spawnerType == 0){
-            if (countdown <= 0 && getNumMobs() < maxMonsterCount) {
+            if (countdown <= 0 && getNumMobs() < maxMonsterCount && amount > 0) {
                 Cat cat = new Cat();
                 getWorld().addObject(new Cat(), getX(), getY());
                 countdown = delay;
                 setAmount(amount - 1);
                 getNumMobs();
+
             }
         }
 
         if(spawnerType == 1){
-            if (countdown <= 0 && getNumMobs() < maxMonsterCount) {
+            if (countdown <= 0 && getNumMobs() < maxMonsterCount && amount > 0) {
                 Dog dog = new Dog();
                 getWorld().addObject(new Dog(), getX(), getY());
                 countdown = delay;
                 setAmount(amount - 1);
                 getNumMobs();
+
             }
         }   else {
             if(spawnerType == 2){
-                if (countdown <= 0 && getNumMobs() < maxMonsterCount) {
+                if (countdown <= 0 && getNumMobs() < maxMonsterCount && amount > 0) {
                     Rat rat = new Rat();
                     getWorld().addObject(new Rat(), getX(), getY());
                     countdown = delay;
                     setAmount(amount - 1);
                     getNumMobs();
+
                 }
             }
         }
@@ -111,5 +124,8 @@ public class Spawner extends ImprovedActor {
         List <Mob> mobs = getWorld().getObjects(Mob.class);
         int numMobs = mobs.size();
         return numMobs;
+
+
     }
 }
+

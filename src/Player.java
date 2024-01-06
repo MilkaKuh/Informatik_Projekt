@@ -29,18 +29,25 @@ public class Player extends Character {
     }
     public Player() {
         setLevel(1);
-        setLife(100);
+        setLife(200);
         setStamina(100);
         setCoins(0);
         setExperience(0);
         setSpeed(1);
         setExperience(0);
         setIsOverground(true);
+        setDamage(15);
     }
 
     public void act() {
         performMovement();
         interact();
+        if(Greenfoot.isKeyDown("F")){
+            hit(Character.class);
+
+
+        }
+
     }
     //Methoden
     public void addedToWorld(World world) {
@@ -69,9 +76,6 @@ public class Player extends Character {
             if (getNextX(2) < 255 ){
                 move(5);
             }
-
-        }
-        if (Greenfoot.isKeyDown("F")){
 
         }
     }
@@ -126,6 +130,7 @@ public class Player extends Character {
     public void interactSubway(){
 
     }
+
 
 
     public void interactNPC(List<Interactable> objects){

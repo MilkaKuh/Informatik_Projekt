@@ -43,38 +43,52 @@ public class WorldHandler extends World {
     }
 
     public void checkWorldChange(){
-        if (getPlayer().getNextX(6) > 260 ){
-            //todo abfragen ob nÃ¤chste Welt leer ist => dann neu erstellen, sonst die aus der Liste nehmen (und den Player wieder reinsetzen)
-            WorldHandler newWorld;
-            int randomizer = Greenfoot.getRandomNumber(3);
-            if (getPlayer().getIsOverground() == true){
-                if(randomizer==0){
-                    newWorld = new WorldOne(getPlayer());
-                } else if (randomizer==1) {
-                    newWorld = new WorldTwo(getPlayer());
-                }else{
-                    newWorld = new WorldThree(getPlayer());
+        Greenfoot.delay(1);
+        if (getPlayer().getNextX(6) > 260 && getPlayer().getRotation() == 0 ){
+            WorldHandler OutOfBouncePrevention = null;
+            worlds.add(OutOfBouncePrevention);
+            if (worlds.get(currentPosAtWorldList + 1) == null){
+                //todo abfragen ob nÃ¤chste Welt leer ist => dann neu erstellen, sonst die aus der Liste nehmen (und den Player wieder reinsetzen)
+                WorldHandler newWorld;
+                int randomizer = Greenfoot.getRandomNumber(3);
+                if (getPlayer().getIsOverground()) {
+                    if (randomizer == 0) {
+                        newWorld = new WorldOne(getPlayer());
+                    } else if (randomizer == 1) {
+                        newWorld = new WorldTwo(getPlayer());
+                    } else {
+                        newWorld = new WorldThree(getPlayer());
+                    }
+                } else {
+                    if (randomizer == 0) {
+                        newWorld = new SubwayWorldOne(getPlayer());
+                    } else if (randomizer == 1) {
+                        newWorld = new SubwayWorldTwo(getPlayer());
+                    } else {
+                        newWorld = new SubwayWorldThree(getPlayer());
+                    }
                 }
-            }else{
-                if(randomizer==0){
-                    newWorld = new SubwayWorldOne(getPlayer());
-                } else if (randomizer==1) {
-                    newWorld = new SubwayWorldTwo(getPlayer());
-                }else{
-                    newWorld = new SubwayWorldThree(getPlayer());
-                }
+                currentPosAtWorldList++;
+                Greenfoot.setWorld(newWorld);
+                worlds.remove(OutOfBouncePrevention);
+                return;
+            } else {
+                WorldHandler worldToActivate = worlds.get(currentPosAtWorldList + 1);
+                worldToActivate.addObject(getPlayer(), 10, 60);
+                Greenfoot.setWorld(worldToActivate);
+                currentPosAtWorldList++;
+                worlds.remove(OutOfBouncePrevention);
+                return;
             }
-            currentPosAtWorldList++;
-            Greenfoot.setWorld(newWorld);
-            return;
-        }else if (getPlayer().getNextX(6) < 5){
+        }else if (getPlayer().getNextX(6) < 5 && getPlayer().getRotation() == 180){
             currentPosAtWorldList--;
             WorldHandler worldToActivate = worlds.get(currentPosAtWorldList);
             worldToActivate.addObject(getPlayer(), 250, 60);
             Greenfoot.setWorld(worldToActivate);
             return;
         }
-        System.out.println(getWorldList().size());
+        System.out.println("ListLength :" + worlds.size());
+        System.out.println("PlayerPos :" + currentPosAtWorldList);
     }
 
     public void act(){

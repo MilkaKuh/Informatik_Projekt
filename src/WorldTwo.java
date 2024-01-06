@@ -1,20 +1,17 @@
-import java.util.ArrayList;
+import java.util.*;
 
-public class WorldTwo extends Overground
-{
-    public WorldTwo()
-    {
-        super();
-        setBackground("./images/WorldTwo.png");
-        setPaintOrder(Player.class);
-        addObject(new Player(), 20,60);
+public class WorldTwo extends Overground{
+
+    public WorldTwo(){
+        this(new Player());
     }
-    public WorldTwo(Player p, ArrayList<Worlds> w)
+
+    public WorldTwo(Player player)
     {
-        new Worlds(w);
+        super(player);
         setBackground("./images/WorldTwo.png");
         setPaintOrder(Player.class);
-        addObject(p, 10,60);
+        addObject(player, 10,60);
     }
 }
 

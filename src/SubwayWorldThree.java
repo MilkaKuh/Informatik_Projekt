@@ -1,18 +1,16 @@
+import java.util.*;
+public class SubwayWorldThree extends Overground{
 
-public class SubwayWorldThree extends Underground{
-
-    public SubwayWorldThree()
-    {
-        super();
-        setBackground("./images/BackgroundLeft.png");
-        setPaintOrder(Player.class);
-        addObject(new Player(), 0,75);
+    public SubwayWorldThree(){
+        this(new Player());
     }
-    public SubwayWorldThree(Player p)
+
+    public SubwayWorldThree(Player player)
     {
-        super();
-        setBackground("./images/BackgroundLeft.png");
+        super(player);
+        setBackground("./images/SubwayWorldThree.png");
         setPaintOrder(Player.class);
-        addObject(p, 0,75);
+        addObject(player, 10,60);
     }
 }
+

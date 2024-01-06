@@ -35,7 +35,7 @@ public class WorldHandler extends World {
 
 
     public void checkWorldChange(){
-        Greenfoot.delay(1);
+
         if (getPlayer().getNextX(6) > 260 && getPlayer().getRotation() == 0 ){
             WorldHandler OutOfBouncePrevention = null;
             worlds.add(OutOfBouncePrevention);

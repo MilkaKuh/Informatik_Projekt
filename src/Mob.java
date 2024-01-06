@@ -2,9 +2,14 @@ import greenfoot.Actor;
 import greenfoot.Greenfoot;
 
 public class Mob extends Character{
+
+    private int hitCooldown = 10;
+
+
+
     public void monsterPerformMovement() {
         int rngDirection = Greenfoot.getRandomNumber(2);
-        int steps = Greenfoot.getRandomNumber(20) + 10;
+        int steps = Greenfoot.getRandomNumber(3) + 4;
 
         if (rngDirection == 0) {
             turn(Direction.WEST);
@@ -14,6 +19,12 @@ public class Mob extends Character{
             turn(Direction.EAST);
             move(steps);
         }
+        if(hitCooldown == 0){
+            hit(Player.class);
+            hitCooldown = 10;
+        }
+
+        hitCooldown = hitCooldown - 1;
 
     }
 

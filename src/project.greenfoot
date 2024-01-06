@@ -1,5 +1,9 @@
 #Greenfoot project file
 class.Player.image=./images/Player/StandEast.png
 class.TrashCan.image=./images/TrashCan.png
+class.Spawner.image=./images/Spawner.png
+class.Cat.image=./images/CatEast.png
+class.Dog.image=./images/DogEast.png
+class.NPC.image=./images/NPC.png
 project.charset=windows-1252
 simulation.speed=35

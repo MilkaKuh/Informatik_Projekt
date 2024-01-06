@@ -64,13 +64,14 @@ public class Player extends Character {
             }
 
         }
-
-
         if (Greenfoot.isKeyDown("D")) {
             turn(Direction.EAST);
             if (getNextX(2) < 255 ){
                 move(5);
             }
+
+        }
+        if (Greenfoot.isKeyDown("F")){
 
         }
     }

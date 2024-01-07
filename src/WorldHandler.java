@@ -25,7 +25,7 @@ public class WorldHandler extends World {
             addObject(new TrashCan(), Greenfoot.getRandomNumber(90),65);
             addObject(new TrashCan(), 180 + Greenfoot.getRandomNumber(70),65);
         }
-        worlds.get(0).addObject(new NPC(), 30, 69);
+        worlds.get(0).addObject(new NPC(), 30, 58);
         setPaintOrder(Player.class,Pickable.class);
     }
 
@@ -74,7 +74,7 @@ public class WorldHandler extends World {
                 return;
             }
         } else if(currentPosAtWorldList > 0){
-                if (getPlayer().getNextX(6) < 5 && getPlayer().getRotation() == 180) {
+                if (getPlayer().getNextX(6) < 0 && getPlayer().getRotation() == 180) {
                     currentPosAtWorldList--;
                     WorldHandler worldToActivate = worlds.get(currentPosAtWorldList);
                     worldToActivate.addObject(getPlayer(), 250, 60);
@@ -85,6 +85,7 @@ public class WorldHandler extends World {
     }
 
     public void act(){
+        setPaintOrder(Player.class,TrashCan.class,Spawner.class,NPC.class);
         checkWorldChange();
     }
 

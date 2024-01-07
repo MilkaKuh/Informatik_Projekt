@@ -42,6 +42,7 @@ public class TrashCan extends Actor implements Interactable {
     }
 
     public void setLooted(boolean looted) {
+        setImage("./images/TrashCanOpen.png");
         this.looted = looted;
     }
 

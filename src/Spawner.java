@@ -107,7 +107,7 @@ public class Spawner extends Actor {
             if(spawnerType == 2){
                 if (countdown <= 0 && getNumMobs() < maxMonsterCount && amount > 0) {
                     Rat rat = new Rat();
-                    getWorld().addObject(new Rat(), getX(), getY());
+                    getWorld().addObject(new Rat(), getX(), getY()+2);
                     countdown = delay;
                     setAmount(amount - 1);
                     getNumMobs();

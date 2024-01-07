@@ -121,7 +121,6 @@ public class Player extends Character {
                     inventory[i] = tc.getBottle();
                     tc.lootedBottle();
                     tc.setLooted(true);
-                    System.out.println("tc.getBootle");
                 } else {
                     System.out.println("Dein Inventar ist bereits voll");
                 }

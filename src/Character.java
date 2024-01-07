@@ -94,8 +94,8 @@ public class Character extends MovingActor {
             if (enemy.getLife() <= 0){
                 world.removeObject(enemy);
             }
+            }
         }
     }
 
 
-}

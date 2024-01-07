@@ -1,5 +1,8 @@
 import greenfoot.Actor;
 import greenfoot.Greenfoot;
+import greenfoot.World;
+
+import java.util.List;
 
 public class Mob extends Character{
 
@@ -26,12 +29,13 @@ public class Mob extends Character{
         if (hitCooldown == 0) {
             hit(Player.class, radius);
             hitCooldown = 10;
-        }
+            World world = getWorld();
+            }
         hitCooldown = hitCooldown - 1;
     }
 
-
     public void act(){
         monsterPerformMovement();
+        }
     }
-}
+

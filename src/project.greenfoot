@@ -1,0 +1,17 @@
+#Greenfoot project file
+class.Player.image=./images/Player/StandEast.png
+class.TrashCan.image=./images/TrashCan.png
+class.Spawner.image=./images/Spawner.png
+class.Cat.image=./images/CatEast.png
+class.Dog.image=./images/DogEast.png
+class.NPC.image=./images/NPC.png
+class.BeerBottle.image=./images/BeerBottle.png
+class.VodkaBottle.image=./images/VodkaBottle.png
+class.PlasticBottle.image=./images/PlasticBottle.png
+class.WineBottle.image=./images/WineBottle.png
+class.SubwayStation.image=./images/SubwayStation.png
+class.UndergroundTrashCan.image=./images/TrashCan.png
+class.HitAnimation.image=./images/Star.png
+class.Elevator.image=./images/Lift.png
+project.charset=windows-1252
+simulation.speed=35

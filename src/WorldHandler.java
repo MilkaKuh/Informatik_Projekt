@@ -31,6 +31,8 @@ public class WorldHandler extends World {
         if(NPCRandomizer == 0){
             addObject(new NPC(), Greenfoot.getRandomNumber(30),58);
         }
+        addObject(new Coins(),256
+                , 3);
     }
 
 
@@ -89,7 +91,7 @@ public class WorldHandler extends World {
     }
 
     public void act(){
-        setPaintOrder(Player.class,TrashCan.class,Spawner.class,NPC.class);
+        setPaintOrder(Player.class,Coins.class, TrashCan.class,Spawner.class,NPC.class);
         checkWorldChange();
     }
 

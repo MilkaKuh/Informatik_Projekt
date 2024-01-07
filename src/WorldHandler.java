@@ -27,6 +27,10 @@ public class WorldHandler extends World {
         }
         worlds.get(0).addObject(new NPC(), 30, 58);
         setPaintOrder(Player.class,Pickable.class);
+        int NPCRandomizer = Greenfoot.getRandomNumber(9);
+        if(NPCRandomizer == 0){
+            addObject(new NPC(), Greenfoot.getRandomNumber(40),65);
+        }
     }
 
 

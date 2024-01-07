@@ -1,8 +1,8 @@
 public class Rat extends Mob{
 
     public void Rat(){
-        setDamage(3);
-        setLife(12);
+        setDamage(12);
+        setLife(48);
 
     }
     public void act(){

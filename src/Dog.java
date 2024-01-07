@@ -1,8 +1,8 @@
 public class Dog extends Mob{
 
     public void Dog(){
-        setDamage(5);
-        setLife(35);
+        setDamage(20);
+        setLife(140);
 
     }
 

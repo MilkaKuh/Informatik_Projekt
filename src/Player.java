@@ -18,6 +18,8 @@ public class Player extends Character {
 
     private String direction;
 
+    int healCooldown = 10;
+
 
     //Getter & Setter
     public boolean getIsOverground(){
@@ -36,7 +38,7 @@ public class Player extends Character {
         setSpeed(1);
         setExperience(0);
         setIsOverground(true);
-        setDamage(15);
+        setDamage(30);
     }
 
     public void act() {
@@ -44,9 +46,11 @@ public class Player extends Character {
         interact();
         if(Greenfoot.isKeyDown("F")){
             hit(Character.class, 30);
-
-
         }
+        if(healCooldown == 0){
+            regenerateLife(1);
+        }
+        healCooldown = healCooldown -1;
 
     }
     //Methoden
@@ -80,6 +84,9 @@ public class Player extends Character {
         }
     }
 
+    public void regenerateLife(int healAmount){
+        setLife(getLife() + healAmount);
+    }
 
 
     public void interact() {

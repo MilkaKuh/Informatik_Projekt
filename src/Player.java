@@ -29,9 +29,9 @@ public class Player extends Character {
     }
     public Player() {
         setLevel(1);
-        setLife(200);
+        setLife(100);
         setStamina(100);
-        setCoins(1);
+        setCoins(0);
         setExperience(0);
         setSpeed(1);
         setExperience(0);
@@ -44,10 +44,10 @@ public class Player extends Character {
         interact();
         if(Greenfoot.isKeyDown("F")){
             hit(Character.class, 30);
+
+
         }
-        List <Coins> coins = getWorld().getObjects(Coins.class);
-        int coinsRn = this.getCoins();
-        coins.get(0).setCoins(coinsRn);
+
     }
     //Methoden
     public void addedToWorld(World world) {
@@ -69,12 +69,14 @@ public class Player extends Character {
             if (getNextX(2) < 255 ){
                 move(5);
             }
+
         }
         if (Greenfoot.isKeyDown("D")) {
             turn(Direction.EAST);
             if (getNextX(2) < 255 ){
                 move(5);
             }
+
         }
     }
 

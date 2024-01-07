@@ -29,7 +29,13 @@ public class WorldHandler extends World {
         }
         worlds.get(0).addObject(new NPC(), 30, 57);
         setPaintOrder(Player.class,Pickable.class);
-        addObject(new Coins(),256, 3);
+        addObject(new Coins(),5, 5);
+
+        for (int i = 0; i < 10; i++) {
+            if(player.getLife() > i*10 ){
+                addObject(new Hearts(), 5+(i*6),86);
+            }
+        }
     }
     public WorldHandler(Player player, String identifier){
         super(260, 90, 10);
@@ -45,7 +51,13 @@ public class WorldHandler extends World {
             addObject(new UndergroundTrashCan(), 190 + Greenfoot.getRandomNumber(50),61);
         }
         player.setIsOverground(false);
-        addObject(new Coins(),256, 3);
+        addObject(new Coins(),5, 5);
+
+        for (int i = 0; i < 10; i++) {
+            if(player.getLife() > i*10 ){
+                addObject(new Hearts(), 5+(i*6),86);
+            }
+        }
     }
 
 

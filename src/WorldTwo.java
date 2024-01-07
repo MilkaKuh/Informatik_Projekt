@@ -16,7 +16,7 @@ public class WorldTwo extends Overground{
         addObject(player, 10,60);
         int randomizer = Greenfoot.getRandomNumber(4);
         if(randomizer == 1){
-            addObject(new SubwayStation(), 5, 54);
+            addObject(new SubwayStation(), 24, 54);
         }
     }
     public void usedStation(){

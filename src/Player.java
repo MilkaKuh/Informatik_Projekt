@@ -10,15 +10,10 @@ import java.util.List;
 public class Player extends Character {
     //Attribute
     private int healCooldown;
-
     private String direction;
-
     private boolean isOverground;
-
     private InventoryVisualizer visualizer;
-    private boolean usedSubwayStation = false;
-
-    Pickable[] inventory = new Pickable[12];
+    private boolean usedSubwayStation = false;Pickable[] inventory = new Pickable[12];
 
     //Getter & Setter
     public boolean getIsOverground(){
@@ -65,11 +60,16 @@ public class Player extends Character {
         List <Coins> coins = getWorld().getObjects(Coins.class);
         int coinsRn = this.getCoins();
         coins.get(0).setCoins(coinsRn);
+
+        List <Hearts> hearts = getWorld().getObjects(Hearts.class);
+        int lifeRn = Math.round(this.getLife()/10);
+        hearts.get(0).setHearts(lifeRn);
+
     }
     //Methoden
     public void addedToWorld(World world) {
         visualizer = new InventoryVisualizer(inventory);
-        world.addObject(visualizer, 0, world.getHeight() - 3);
+        world.addObject(visualizer, 0, world.getHeight() - 4);
     }
 
 

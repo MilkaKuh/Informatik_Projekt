@@ -12,6 +12,7 @@ class.WineBottle.image=./images/WineBottle.png
 class.SubwayStation.image=./images/SubwayStation.png
 class.UndergroundTrashCan.image=./images/TrashCan.png
 class.HitAnimation.image=./images/Star.png
+class.Hearts.image=./images/Hearts.png
 class.Elevator.image=./images/Lift.png
 project.charset=windows-1252
 simulation.speed=35

@@ -92,8 +92,6 @@ public class Player extends Character {
         }
     }
 
-
-
     public void interact() {
         if (Greenfoot.isKeyDown("E")) {
             List<Interactable> interactable = getObjectsInRange(20, Interactable.class);

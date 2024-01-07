@@ -12,3 +12,4 @@ class.WineBottle.image=./images/WineBottle.png
 class.Coins.image=./images/Coin.png
 project.charset=windows-1252
 simulation.speed=35
+class.HitAnimation.image=./images/Star.png

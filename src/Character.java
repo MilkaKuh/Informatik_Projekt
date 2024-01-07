@@ -89,10 +89,12 @@ public class Character extends MovingActor {
         World world = getWorld();
         List<? extends Character> enemies = getObjectsInRange(radius, cls);
         if(enemies.size() > 0) {
+            world.addObject(new HitAnimation(),getX()+5,getY()+5);
             Character enemy = enemies.get(0);
             enemy.setLife(enemy.getLife() - damage);
             if (enemy.getLife() <= 0){
                 world.removeObject(enemy);
+
             }
             }
         }

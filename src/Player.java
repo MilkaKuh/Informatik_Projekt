@@ -27,9 +27,11 @@ public class Player extends Character {
     public void setIsOverground(boolean x){
         this.isOverground = x;
     }
+    private int healCooldown;
+
     public Player() {
         setLevel(1);
-        setLife(200);
+        setLife(100);
         setStamina(100);
         setCoins(0);
         setExperience(0);
@@ -43,11 +45,17 @@ public class Player extends Character {
         performMovement();
         interact();
         if(Greenfoot.isKeyDown("F")){
-            hit(Character.class, 30);
-
-
+            hit(Character.class, 30, this.getDamage());
         }
 
+        if(healCooldown==0 && getLife()<100){
+            regenerateLife(1);
+            setHealCooldown(10);
+        }
+        if (getLife()<100){
+            setHealCooldown(getHealCooldown()-1);
+        }
+        System.out.println(getLife());
     }
     //Methoden
     public void addedToWorld(World world) {
@@ -60,6 +68,10 @@ public class Player extends Character {
     }
     public String getDirection(){
         return direction;
+    }
+
+    public void regenerateLife(int healAmount){
+        setLife(getLife()+1);
     }
 
     private void performMovement() {
@@ -143,5 +155,11 @@ public class Player extends Character {
 
     }
 
+    public void setHealCooldown(int healCooldown) {
+        this.healCooldown = healCooldown;
+    }
 
+    public int getHealCooldown() {
+        return healCooldown;
+    }
 }

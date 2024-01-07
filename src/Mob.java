@@ -25,9 +25,9 @@ public class Mob extends Character{
 
     }
 
-    public void monsterAttack(int radius) {
+    public void monsterAttack(int radius, int damage) {
         if (hitCooldown == 0) {
-            hit(Player.class, radius);
+            hit(Player.class, radius, damage);
             hitCooldown = 10;
             World world = getWorld();
             }

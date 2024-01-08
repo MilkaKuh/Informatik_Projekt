@@ -5,6 +5,10 @@ public class Mob extends Character{
 
     private int hitCooldown = 10;
 
+    public Mob(){
+        setLevel(1 + Greenfoot.getRandomNumber(3));
+    }
+
 
 
     public void monsterPerformMovement() {

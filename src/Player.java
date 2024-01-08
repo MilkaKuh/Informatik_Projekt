@@ -14,6 +14,7 @@ public class Player extends Character {
     private InventoryVisualizer visualizer;
     private boolean usedSubwayStation = false;Pickable[] inventory = new Pickable[12];
 
+
     //Getter & Setter
     public boolean getIsOverground(){
         return isOverground;
@@ -31,16 +32,16 @@ public class Player extends Character {
         return healCooldown;
     }
 
+
     public Player() {
         setLevel(1);
         setLife(Integer.MAX_VALUE);
         setStamina(100);
         setCoins(0);
-        setExperience(0);
         setSpeed(1);
-        setExperience(0);
         setIsOverground(true);
         setDamage(15);
+
     }
 
     public void act() {
@@ -48,6 +49,10 @@ public class Player extends Character {
         interact();
         if(Greenfoot.isKeyDown("F")){
             hit(Character.class, 30, this.getDamage());
+            int xpGain = Greenfoot.getRandomNumber(100);
+            if(xpGain == 7){
+                setLevel(getLevel() + 1);
+            }
         }
         if(healCooldown==0 && getLife()<100){
             regenerateLife(1);
@@ -59,6 +64,9 @@ public class Player extends Character {
         List <Coins> coins = getWorld().getObjects(Coins.class);
         int coinsRn = this.getCoins();
         coins.get(0).setCoins(coinsRn);
+        //falls es mit der HP Bar funktioniert dies aktivieren !
+        //setLife(getLife() + (10*getLevel()));
+        draw(getLevel());
     }
     //Methoden
     public void addedToWorld(World world) {
@@ -216,6 +224,4 @@ public class Player extends Character {
             inventory[i] = null;
         }
     }
-
-
 }

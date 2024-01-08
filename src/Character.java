@@ -12,7 +12,6 @@ public class Character extends MovingActor {
     private int stamina = 25;
     private int coins = 0;
     private int speed = 1;
-    private int experience = 0;
     private int damage = 10;
     public boolean interact = false;
 
@@ -58,14 +57,6 @@ public class Character extends MovingActor {
         this.speed = speed;
     }
 
-    public int getExperience() {
-        return experience;
-    }
-
-    public void setExperience(int experience) {
-        this.experience = experience;
-    }
-
     public int getDamage() {
         return damage;
     }
@@ -91,13 +82,11 @@ public class Character extends MovingActor {
         if(enemies.size() > 0) {
             world.addObject(new HitAnimation(),getX()+5,getY()+5);
             Character enemy = enemies.get(0);
-            enemy.setLife(enemy.getLife() - damage);
+            enemy.setLife(enemy.getLife() - damage + ((getLevel() - 1)*2));
             if (enemy.getLife() <= 0){
                 world.removeObject(enemy);
 
             }
         }
     }
-
-
 }

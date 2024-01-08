@@ -27,23 +27,23 @@ public class WorldHandler extends World {
             addObject(new TrashCan(), Greenfoot.getRandomNumber(90),63);
             addObject(new TrashCan(), 180 + Greenfoot.getRandomNumber(66),63);
         }
-        int activatorNPC = Greenfoot.getRandomNumber(8);
+        int activatorNPC = Greenfoot.getRandomNumber(5);
         if (activatorNPC == 1){
             addObject(new NPC(),230, 57);
         }
         for (int i = 0; i < 2; i++) {
             int containedBottle = Greenfoot.getRandomNumber(4);
             if (containedBottle == 0) {
-                addObject(new PlasticBottle(), Greenfoot.getRandomNumber(240),66);
+                addObject(new PlasticBottle(), 90 + Greenfoot.getRandomNumber(70),66);
             }
             else if (containedBottle == 1) {
-                addObject(new VodkaBottle(), Greenfoot.getRandomNumber(240),66);
+                addObject(new VodkaBottle(), 90 + Greenfoot.getRandomNumber(70),66);
             }
             else if (containedBottle == 2) {
-                addObject(new BeerBottle(), Greenfoot.getRandomNumber(240),66);
+                addObject(new BeerBottle(), 90 + Greenfoot.getRandomNumber(70),66);
             }
             else {
-                addObject(new PlasticBottle(), Greenfoot.getRandomNumber(240),66);
+                addObject(new PlasticBottle(), 90 + Greenfoot.getRandomNumber(70),66);
             }
         }
         wife = new Wife();
@@ -75,16 +75,16 @@ public class WorldHandler extends World {
         for (int i = 0; i < 2; i++) {
             int containedBottle = Greenfoot.getRandomNumber(4);
             if (containedBottle == 0) {
-                addObject(new PlasticBottle(), Greenfoot.getRandomNumber(240),64);
+                addObject(new PlasticBottle(),170 +  Greenfoot.getRandomNumber(70),64);
             }
             else if (containedBottle == 1) {
-                addObject(new VodkaBottle(), Greenfoot.getRandomNumber(240),64);
+                addObject(new VodkaBottle(), 170 +  Greenfoot.getRandomNumber(70),64);
             }
             else if (containedBottle == 2) {
-                addObject(new BeerBottle(), Greenfoot.getRandomNumber(240),64);
+                addObject(new BeerBottle(), 170 +  Greenfoot.getRandomNumber(70),64);
             }
             else {
-                addObject(new PlasticBottle(), Greenfoot.getRandomNumber(240),64);
+                addObject(new PlasticBottle(), 170 +  Greenfoot.getRandomNumber(70),64);
             }
         }
         player.setIsOverground(false);

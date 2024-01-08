@@ -93,6 +93,7 @@ public class Character extends MovingActor {
             Character enemy = enemies.get(0);
             enemy.setLife(enemy.getLife() - damage);
             if (enemy.getLife() <= 0){
+                this.setCoins(enemy.coins);
                 world.removeObject(enemy);
 
             }

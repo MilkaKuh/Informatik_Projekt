@@ -14,7 +14,7 @@ public class WorldTwo extends Overground{
         setBackground("./images/WorldTwo.png");
         setPaintOrder(Player.class);
         addObject(player, 10,60);
-        int randomizer = Greenfoot.getRandomNumber(4);
+        int randomizer = Greenfoot.getRandomNumber(3);
         if(randomizer == 1){
             addObject(new SubwayStation(), 24, 54);
         }

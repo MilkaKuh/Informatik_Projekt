@@ -6,7 +6,7 @@ public class NPC extends Character implements Interactable{
         setLife(10000);
         setSpeed(0);
         setStamina(0);
-        setCoins(Integer.MAX_VALUE);
+        setCoins(10000);
         setDamage(0);
     }
     public int sellBottle(Bottle b){
@@ -19,6 +19,11 @@ public class NPC extends Character implements Interactable{
         world = getWorld();
     }
 
+    public void act(){
+        if(getLife() <= 0){
+
+        }
+    }
     @Override
     public Interactable interact(Player trigger, Interactable target) {
         return null;

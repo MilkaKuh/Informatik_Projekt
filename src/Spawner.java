@@ -73,7 +73,7 @@ public class Spawner extends Actor {
         while(maxMonsterCount < 3){
             maxMonsterCount = Greenfoot.getRandomNumber(5);
         }
-        System.out.println(amount);
+        //System.out.println(amount);
     }
 
     public void act() {

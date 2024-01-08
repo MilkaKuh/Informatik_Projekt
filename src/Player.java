@@ -1,7 +1,6 @@
 import greenfoot.*;
-
+import java.math.*;
 import java.util.List;
-
 /**
  * @author SAE
  * @version 1.0
@@ -34,7 +33,7 @@ public class Player extends Character {
 
     public Player() {
         setLevel(1);
-        setLife(100);
+        setLife(Integer.MAX_VALUE);
         setStamina(100);
         setCoins(0);
         setExperience(0);
@@ -60,11 +59,6 @@ public class Player extends Character {
         List <Coins> coins = getWorld().getObjects(Coins.class);
         int coinsRn = this.getCoins();
         coins.get(0).setCoins(coinsRn);
-
-        List <Hearts> hearts = getWorld().getObjects(Hearts.class);
-        int lifeRn = Math.round(this.getLife()/10);
-        hearts.get(0).setHearts(lifeRn);
-
     }
     //Methoden
     public void addedToWorld(World world) {

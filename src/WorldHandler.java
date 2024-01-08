@@ -12,6 +12,7 @@ public class WorldHandler extends World {
 
     public WorldHandler(Player player){
         super(260, 90, 10);
+        System.out.println(currentPosAtWorldList+currentPosAtUndergroundWorldList);
         this.player = player;
         worlds.add(this);
 
@@ -39,6 +40,7 @@ public class WorldHandler extends World {
     }
     public WorldHandler(Player player, String identifier){
         super(260, 90, 10);
+        System.out.println(currentPosAtWorldList+currentPosAtUndergroundWorldList);
         this.player = player;
         undergroundWorlds.add(this);
 

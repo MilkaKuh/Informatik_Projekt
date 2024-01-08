@@ -59,7 +59,10 @@ public class WorldHandler extends World {
         super(260, 90, 10);
         this.player = player;
         undergroundWorlds.add(this);
-
+        int activatorNPC = Greenfoot.getRandomNumber(5);
+        if (activatorNPC == 1){
+            addObject(new NPC(),230, 57);
+        }
 
         int randomizer = Greenfoot.getRandomNumber(2);
         if(randomizer == 1){
@@ -68,6 +71,8 @@ public class WorldHandler extends World {
             addObject(new UndergroundTrashCan(), 66 +Greenfoot.getRandomNumber(90),61);
             addObject(new UndergroundTrashCan(), 190 + Greenfoot.getRandomNumber(50),61);
         }
+
+
         int randomizerHomeless = Greenfoot.getRandomNumber(3);
         if (randomizer == 1){
             addObject(new Homeless(), 166 + Greenfoot.getRandomNumber(50), 56);
